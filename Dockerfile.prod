@@ -1,12 +1,22 @@
 ### STAGE 1
 
+# Extend image
 FROM node as build
+
+# Create app directory
 WORKDIR /app
+
+# Copy dependency list and install depz
 COPY package.json .
 RUN npm install
+
+# Bundle app source
 COPY . .
-ARG REACT_APP_NAME
-ENV REACT_APP_NAME=$REACT_APP_NAME
+
+# Environment variables
+# Use to create conditions
+ENV NODE_ENV production
+
 RUN npm run build
 
 ### STAGE 2

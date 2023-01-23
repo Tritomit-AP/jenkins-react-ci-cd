@@ -5,8 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
-      args:
-        - REACT_APP_NAME=Adrian
     # expose port 3000 in the container to be accesible from the outside outside:container
     ports:
       - "8080:80"
@@ -14,5 +12,5 @@ services:
     # environment:
       # - REACT_APP_NAME=Adrian
     # or import a file from current dir and .env file
-    # env_file:
-    #   - ./.env
+    env_file:
+      - ./.env
