@@ -20,10 +20,10 @@ node {
     // }
     stage('Deploy'){
       if(env.BRANCH_NAME == 'main'){
-        sh 'docker build -t react-app --no-cache .'
-        sh 'docker tag react-app localhost:5001/react-app'
-        sh 'docker push localhost:5001/react-app'
-        sh 'docker rmi -f react-app localhost:5001/react-app'
+        sh 'docker build -f Dockerfile.prod -t jenkins-react-app --no-cache .'
+        sh 'docker tag jenkins-react-app localhost:5001/jenkins-react-app'
+        sh 'docker push localhost:5001/jenkins-react-app'
+        sh 'docker rmi -f jenkins-react-app localhost:5001/jenkins-react-app'
       }
     }
   }

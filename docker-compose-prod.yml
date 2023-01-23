@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  react-app:
+    # building the images based on the Dockerfile.dev in the path . current dir
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        - REACT_APP_NAME=Adrian
+    # expose port 3000 in the container to be accesible from the outside outside:container
+    ports:
+      - "8080:80"
+    # environment variables either this
+    # environment:
+      # - REACT_APP_NAME=Adrian
+    # or import a file from current dir and .env file
+    # env_file:
+    #   - ./.env
