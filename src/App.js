@@ -13,7 +13,7 @@ function App() {
           {`This is the ${process.env.NODE_ENV}`} server...
         </p>
         <p>
-          {`And this is my name: ${process.env.REACT_APP_NAME}`}
+          This is the updated automated app!
         </p>
         <a
           className="App-link"

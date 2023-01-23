@@ -29,7 +29,7 @@ node {
         stage('Deploy'){
       if(env.BRANCH_NAME == 'main'){
         sh 'docker pull localhost:5001/jenkins-react-app'
-        sh 'docker rm jenkins-react-app-prod'
+        sh 'docker rm jenkins-react-app-prod -f'
         sh 'docker run -d -p 8888:80 --name jenkins-react-app-prod localhost:5001/jenkins-react-app:latest'
       }
     }
