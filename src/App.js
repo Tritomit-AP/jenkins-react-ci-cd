@@ -12,6 +12,9 @@ function App() {
         <p>
           {`This is the ${process.env.NODE_ENV}`} server...
         </p>
+        <p>
+          {`And this is my name: ${process.env.REACT_APP_NAME}`}
+        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
