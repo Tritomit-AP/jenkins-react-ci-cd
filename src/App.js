@@ -13,7 +13,7 @@ function App() {
           {`This is the ${process.env.NODE_ENV}`} server...
         </p>
         <p>
-          This is the updated automated app!
+          The application was updated by Jenkins in production!
         </p>
         <a
           className="App-link"
