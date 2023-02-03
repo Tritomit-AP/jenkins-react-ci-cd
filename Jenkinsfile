@@ -21,16 +21,16 @@ node {
     stage('Build'){
       if(env.BRANCH_NAME == 'main'){
         sh 'docker build -f Dockerfile.prod -t jenkins-react-app --no-cache .'
-        sh 'docker tag jenkins-react-app localhost:5001/jenkins-react-app'
-        sh 'docker push localhost:5001/jenkins-react-app'
-        sh 'docker rmi -f jenkins-react-app localhost:5001/jenkins-react-app'
+        sh 'docker tag jenkins-react-app localhost:5000/jenkins-react-app'
+        sh 'docker push localhost:5000/jenkins-react-app'
+        sh 'docker rmi -f jenkins-react-app localhost:5000/jenkins-react-app'
       }
     }
-        stage('Deploy'){
+    stage('Deploy'){
       if(env.BRANCH_NAME == 'main'){
-        sh 'docker pull localhost:5001/jenkins-react-app'
+        sh 'docker pull localhost:5000/jenkins-react-app'
         sh 'docker rm jenkins-react-app-prod -f'
-        sh 'docker run -d -p 8888:80 --name jenkins-react-app-prod localhost:5001/jenkins-react-app:latest'
+        sh 'docker run -d -p 8888:80 --name jenkins-react-app-prod localhost:5000/jenkins-react-app:latest'
       }
     }
   }
